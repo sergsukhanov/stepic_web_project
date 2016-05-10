@@ -1,0 +1,21 @@
+{% extends "qa/base.html" %}
+{% block title %}Popular{% endblock %}
+
+{% block content %}
+    {% for q in questions %}
+        <h3 class="panel-title"><a href="{% url 'question' q.id %}">{{ q.title }}</a></h3>
+    {% endfor %}
+    <nav>
+        <ul class="pagination">
+            {% for p in paginator.page_range %}
+                {% if p.number == page.number %}
+                <li class="active">
+                {% else %}
+                <li>
+                {% endif %}
+                    <a href="?page={{ p }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endblock %}
