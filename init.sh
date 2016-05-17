@@ -11,3 +11,6 @@ mysql -uroot -e "FLUSH PRIVILEGES;"
 sudo rm /etc/gunicorn.d/test
 sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 sudo /etc/init.d/gunicorn restart
+
+sudo /etc/init.d/mysql start
+mysql -uroot -e "create database qa"
