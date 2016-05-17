@@ -11,7 +11,7 @@ class Question(models.Model):
     rating = models.IntegerField(default=0)
     author = models.ForeignKey(User,default=1)
     #likes = models.ManyToManyField(User, related_name='questions', blank=True)
-	likes = models.ManyToManyField(User, related_name='likes_set')
+    likes = models.ManyToManyField(User, related_name='likes_set')
 
     def __unicode__(self):
         return self.title
