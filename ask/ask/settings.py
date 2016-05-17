@@ -32,23 +32,23 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 'qa',
-    #'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
-   # 'django.contrib.contenttypes',
-    #'django.contrib.sessions',
-   # 'django.contrib.messages',
-   # 'django.contrib.staticfiles',
+   'django.contrib.contenttypes',
+    'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE_CLASSES = [
-   #'django.middleware.security.SecurityMiddleware',
-   #'django.contrib.sessions.middleware.SessionMiddleware',
-   # 'django.middleware.common.CommonMiddleware',
-   #'django.middleware.csrf.CsrfViewMiddleware',
+   'django.middleware.security.SecurityMiddleware',
+   'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+   'django.middleware.csrf.CsrfViewMiddleware',
    'django.contrib.auth.middleware.AuthenticationMiddleware',
    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-   # 'django.contrib.messages.middleware.MessageMiddleware',
-   #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   'django.contrib.messages.middleware.MessageMiddleware',
+   'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'ask.urls'
