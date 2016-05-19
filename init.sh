@@ -14,5 +14,3 @@ sudo /etc/init.d/gunicorn restart
 
 sudo /etc/init.d/mysql start
 mysql -uroot -e "create database qa"
-mysql -uroot -e "CREATE USER 'box'@'localhost' IDENTIFIED BY '1234';"
-mysql -uroot -e "GRANT ALL PRIVILEGES ON qa.* TO 'box'@'localhost' WITH GRANT OPTION;"
