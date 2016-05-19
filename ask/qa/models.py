@@ -12,7 +12,7 @@ class Question(models.Model):
     author = models.ForeignKey(User,default=1)
     #likes = models.ManyToManyField(User, related_name='questions', blank=True)
     likes = models.ManyToManyField(User, related_name='likes_set')
-
+	objects = QuestionManager()
     def __unicode__(self):
         return self.title
 
@@ -25,3 +25,10 @@ class Answer(models.Model):
     added_at = models.DateField(auto_now_add=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     author = models.ForeignKey(User, default=1)
+	
+class QuestionManager():
+    def new(self):
+        return self.title
+
+    def popular(self):
+        return reverse('question', kwargs={"id": self.id})
