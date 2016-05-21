@@ -4,14 +4,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class QuestionManager(models.Manager):
-    def new(self):
-        return self
-
-    def popular(self):
-        return self
-		
-		
+			
 class Question(models.Model):
     title = models.CharField(max_length=255)
     text = models.TextField()
@@ -20,7 +13,7 @@ class Question(models.Model):
     author = models.ForeignKey(User,default=1)
     #likes = models.ManyToManyField(User, related_name='questions', blank=True)
     likes = models.ManyToManyField(User, related_name='likes_set')
-    objects = QuestionManager()
+    #objects = QuestionManager()
     def __unicode__(self):
         return self.title
 
