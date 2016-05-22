@@ -37,9 +37,15 @@ def popular(request):
 
 @require_GET
 def question(request, id):
-    question = get_object_or_404(Question, pk=id)
-    answers = Answer.objects.filter(question_id__exact=int(id))
-    answer_form = AnswerForm({"question": question.id})
+    try:
+        question = Question.objects.get(pk=id)
+        answer_form = AnswerForm()
+    except Question.DoesNotExist:
+        raise Http404
+    try:
+        answers = Answer.objects.filter(question=question).order_by('-added_at')
+    except Answer.DoesNotExists:
+        answers = None
 
     return render(request, 'qa/question.html', {
         'question': question,
