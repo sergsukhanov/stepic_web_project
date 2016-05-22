@@ -44,7 +44,7 @@ def question(request, id):
         raise Http404
     try:
         answers = Answer.objects.filter(question=question).order_by('-added_at')
-    except Answer.DoesNotExists:
+    except Answer.DoesNotExist:
         answers = None
 
     return render(request, 'qa/question.html', {
