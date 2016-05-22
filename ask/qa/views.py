@@ -39,7 +39,7 @@ def popular(request):
 def question(request, id):
     try:
         question = Question.objects.get(pk=id)
-        answer_form = AnswerForm()
+        answer_form = AnswerForm({"question": question.id})
     except Question.DoesNotExist:
         raise Http404
     try:
