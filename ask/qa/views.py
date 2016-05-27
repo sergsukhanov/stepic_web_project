@@ -43,7 +43,7 @@ def question(request, id):
     except Question.DoesNotExist:
         raise Http404
     try:
-        answers = Answer.objects.filter(question=question).order_by('-added_at')
+        answers = question.answer_set.all()
     except Answer.DoesNotExist:
         answers = None
 
